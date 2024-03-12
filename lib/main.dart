@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wheater_app/components/hour-temperatures-row.dart';
+import 'package:wheater_app/components/report-row.dart';
 
 void main() => runApp(const WeatherApp());
 
@@ -16,8 +18,8 @@ class WeatherApp extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Colors.lightBlue.shade100,
-                  Colors.blue,
+                  Colors.lightBlue.shade300,
+                  Colors.blue.shade900,
                 ],
               ),
             ),
@@ -97,108 +99,14 @@ class WeatherApp extends StatelessWidget {
                 SizedBox(
                   height: 60,
                 ),
-                ReportRow()
+                ReportRow(),
+                SizedBox(
+                  height: 60,
+                ),
+                HoursTemperaturesRow()
               ],
             )),
       ),
-    );
-  }
-}
-
-class ReportRow extends StatelessWidget {
-  const ReportRow({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        ReportItem(
-          "Umidade",
-          const Image(
-            image: AssetImage(
-              '../images/umidade.png',
-            ),
-            width: 50,
-            height: 50,
-          ),
-          "50",
-        ),
-        ReportItem(
-          "Vento",
-          const Image(
-            image: AssetImage(
-              '../images/vento.png',
-            ),
-            width: 50,
-            height: 50,
-          ),
-          "50",
-        ),
-        ReportItem(
-          "Temperatura",
-          const Image(
-            image: AssetImage(
-              '../images/sensacao.png',
-            ),
-            width: 50,
-            height: 50,
-          ),
-          "50",
-        ),
-      ],
-    );
-  }
-}
-
-class ReportItem extends StatelessWidget {
-  late String text;
-  late Image image;
-  late String value;
-
-  ReportItem(
-    this.text,
-    this.image,
-    this.value, {
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        image,
-        Text(
-          text,
-          style: const TextStyle(
-              color: Colors.white,
-              fontSize: 17,
-              fontWeight: FontWeight.normal,
-              shadows: [
-                Shadow(
-                  color: Colors.black45,
-                  offset: Offset(2, 2),
-                  blurRadius: 10,
-                )
-              ]),
-        ),
-        Text(
-          value,
-          style: const TextStyle(
-              color: Colors.white,
-              fontSize: 17,
-              fontWeight: FontWeight.normal,
-              shadows: [
-                Shadow(
-                  color: Colors.black45,
-                  offset: Offset(2, 2),
-                  blurRadius: 10,
-                )
-              ]),
-        ),
-      ],
     );
   }
 }
