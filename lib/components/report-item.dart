@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class ReportItem extends StatelessWidget {
-  late String text;
-  late Image image;
-  late String value;
+  final String text;
+  final Image image;
+  final String value;
 
-  ReportItem(
+  const ReportItem(
     this.text,
     this.image,
     this.value, {

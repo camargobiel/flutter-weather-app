@@ -9,12 +9,12 @@ class ReportRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         ReportItem(
           "Umidade",
-          const Image(
+          Image(
             image: AssetImage(
               '../images/umidade.png',
             ),
@@ -25,7 +25,7 @@ class ReportRow extends StatelessWidget {
         ),
         ReportItem(
           "Vento",
-          const Image(
+          Image(
             image: AssetImage(
               '../images/vento.png',
             ),
@@ -36,7 +36,7 @@ class ReportRow extends StatelessWidget {
         ),
         ReportItem(
           "Temperatura",
-          const Image(
+          Image(
             image: AssetImage(
               '../images/sensacao.png',
             ),

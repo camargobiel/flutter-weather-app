@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class HoursTemperatureItem extends StatelessWidget {
-  late String text;
-  late Image image;
-  late String value;
+  final String text;
+  final Image image;
+  final String value;
 
-  HoursTemperatureItem(
+  const HoursTemperatureItem(
     this.text,
     this.image,
     this.value, {
@@ -14,38 +14,43 @@ class HoursTemperatureItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          text,
-          style: const TextStyle(
-              color: Colors.white,
-              fontSize: 15,
-              fontWeight: FontWeight.normal,
-              shadows: [
-                Shadow(
-                  color: Colors.black45,
-                  offset: Offset(2, 2),
-                  blurRadius: 10,
-                )
-              ]),
-        ),
-        image,
-        Text(
-          value,
-          style: const TextStyle(
-              color: Colors.white,
-              fontSize: 15,
-              fontWeight: FontWeight.normal,
-              shadows: [
-                Shadow(
-                  color: Colors.black45,
-                  offset: Offset(2, 2),
-                  blurRadius: 10,
-                )
-              ]),
-        ),
-      ],
+    return Container(
+      margin: const EdgeInsets.only(left: 39),
+      alignment: Alignment.bottomCenter,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            text,
+            style: const TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.normal,
+                shadows: [
+                  Shadow(
+                    color: Colors.black45,
+                    offset: Offset(2, 2),
+                    blurRadius: 10,
+                  )
+                ]),
+          ),
+          image,
+          Text(
+            value,
+            style: const TextStyle(
+                color: Colors.white,
+                fontSize: 15,
+                fontWeight: FontWeight.normal,
+                shadows: [
+                  Shadow(
+                    color: Colors.black45,
+                    offset: Offset(2, 2),
+                    blurRadius: 10,
+                  )
+                ]),
+          ),
+        ],
+      ),
     );
   }
 }

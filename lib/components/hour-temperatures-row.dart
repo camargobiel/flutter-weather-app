@@ -8,65 +8,72 @@ class HoursTemperaturesRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        HoursTemperatureItem(
-          "Agora",
-          const Image(
-            image: AssetImage(
-              '../images/nublado.png',
+    const double imageSize = 36;
+
+    return SizedBox(
+      height: 90,
+      child: Expanded(
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: const [
+            HoursTemperatureItem(
+              "Agora",
+              Image(
+                image: AssetImage(
+                  '../images/nublado.png',
+                ),
+                width: imageSize,
+                height: imageSize,
+              ),
+              "18°",
             ),
-            width: 50,
-            height: 50,
-          ),
-          "18°",
-        ),
-        HoursTemperatureItem(
-          "10AM",
-          const Image(
-            image: AssetImage(
-              '../images/sol.png',
+            HoursTemperatureItem(
+              "10AM",
+              Image(
+                image: AssetImage(
+                  '../images/sol.png',
+                ),
+                width: imageSize,
+                height: imageSize,
+              ),
+              "18°",
             ),
-            width: 50,
-            height: 50,
-          ),
-          "18°",
-        ),
-        HoursTemperatureItem(
-          "11AM",
-          const Image(
-            image: AssetImage(
-              '../images/vento.png',
+            HoursTemperatureItem(
+              "11AM",
+              Image(
+                image: AssetImage(
+                  '../images/vento.png',
+                ),
+                width: imageSize,
+                height: imageSize,
+              ),
+              "18°",
             ),
-            width: 50,
-            height: 50,
-          ),
-          "18°",
-        ),
-        HoursTemperatureItem(
-          "11AM",
-          const Image(
-            image: AssetImage(
-              '../images/vento.png',
+            HoursTemperatureItem(
+              "11AM",
+              Image(
+                image: AssetImage(
+                  '../images/vento.png',
+                ),
+                width: imageSize,
+                height: imageSize,
+              ),
+              "18°",
             ),
-            width: 50,
-            height: 50,
-          ),
-          "18°",
-        ),
-        HoursTemperatureItem(
-          "11AM",
-          const Image(
-            image: AssetImage(
-              '../images/vento.png',
+            HoursTemperatureItem(
+              "11AM",
+              Image(
+                image: AssetImage(
+                  '../images/vento.png',
+                ),
+                width: imageSize,
+                height: imageSize,
+              ),
+              "18°",
             ),
-            width: 50,
-            height: 50,
-          ),
-          "18°",
+          ],
         ),
-      ],
+      ),
     );
   }
 }
