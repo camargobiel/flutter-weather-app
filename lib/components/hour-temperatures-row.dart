@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:wheater_app/components/hour-temperatures-item.dart';
 
 class HoursTemperaturesRow extends StatelessWidget {
+  final Map<String, dynamic>? data;
   const HoursTemperaturesRow({
     super.key,
+    required this.data,
   });
 
   @override
