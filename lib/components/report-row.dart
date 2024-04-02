@@ -24,10 +24,10 @@ class ReportRow extends StatelessWidget {
             width: 50,
             height: 50,
           ),
-          "${data!["data"]["humidity"]}",
+          "${data!["data"]["humidity"]}%",
         ),
         ReportItem(
-          "Vento",
+          "Velocidade do vento",
           const Image(
             image: AssetImage(
               '../images/vento.png',
@@ -35,10 +35,10 @@ class ReportRow extends StatelessWidget {
             width: 50,
             height: 50,
           ),
-          "${data!["data"]["wind_velocity"]}",
+          "${data!["data"]["wind_velocity"]}km/h",
         ),
         ReportItem(
-          "Temperatura",
+          "Sensação térmica",
           const Image(
             image: AssetImage(
               '../images/sensacao.png',
@@ -46,7 +46,7 @@ class ReportRow extends StatelessWidget {
             width: 50,
             height: 50,
           ),
-          "${data!["data"]["sensation"]}",
+          "${data!["data"]["sensation"]}°",
         ),
       ],
     );

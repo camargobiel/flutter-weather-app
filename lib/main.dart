@@ -16,7 +16,7 @@ class WeatherApp extends StatelessWidget {
         body: FutureBuilder<Map<String, dynamic>>(
             future: getWeather(),
             builder: (context, snapshot) {
-              var colors = [
+              var backgroundGradient = [
                 Colors.lightBlue.shade300,
                 Colors.blue.shade900,
               ];
@@ -24,12 +24,19 @@ class WeatherApp extends StatelessWidget {
               if (!snapshot.hasData) {
                 return const CircularProgressIndicator();
               }
-              bool isCloudy =
-                  snapshot.data!["data"]["condition"] == "Céu encoberto";
+              String icon = snapshot.data!["data"]["icon"];
+              bool isCloudy = icon.contains("3") || icon.contains("4");
+              bool isSunnyCloudy = icon.contains("2") || icon.contains("2r");
               if (isCloudy) {
-                colors = [
+                backgroundGradient = [
                   Colors.black45,
                   Colors.black87,
+                ];
+              }
+              if (isSunnyCloudy) {
+                backgroundGradient = [
+                  Colors.blue.shade800,
+                  Colors.black26,
                 ];
               }
 
@@ -38,7 +45,7 @@ class WeatherApp extends StatelessWidget {
                   height: double.maxFinite,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      colors: colors,
+                      colors: backgroundGradient,
                     ),
                   ),
                   child: Column(
@@ -65,14 +72,14 @@ class WeatherApp extends StatelessWidget {
                       ),
                       Column(
                         children: [
-                          const Align(
+                          Align(
                             alignment: Alignment.center,
                             child: Image(
                               image: AssetImage(
-                                '../images/sol.png',
+                                '../images/${findImage(snapshot.data!["data"]["icon"])}.png',
                               ),
-                              width: 96,
-                              height: 96,
+                              width: 130,
+                              height: 130,
                             ),
                           ),
                           Align(
@@ -120,5 +127,15 @@ class WeatherApp extends StatelessWidget {
             }),
       ),
     );
+  }
+
+  findImage(String icon) {
+    if (icon == "1") {
+      return "sol";
+    }
+    if (icon == "2") {
+      return "nublado";
+    }
+    return "sol";
   }
 }
